@@ -22,6 +22,7 @@ jobs:
       with:
         python-version: '3.10'
 
-    # 3. Ejecuta el script de Python y muestra los mensajes
+    # 3. Ejecuta el script de Python y muestra los mensaje
     - name: Ejecutar script de Hola Mundo CI
       run: python hola_mundo.py
+      
