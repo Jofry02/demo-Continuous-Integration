@@ -3,9 +3,9 @@ name: CI Hola Mundo Jolfreilyn
 # El pipeline se activará cada vez que se haga un push a la rama principal
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: ["main"]
 
 jobs:
   build-and-run:
