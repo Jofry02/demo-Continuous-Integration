@@ -1,32 +1,34 @@
 name: CI Hola Mundo Jolfreilyn
 
-# El pipeline se activará cada vez que se haga un push a la rama principal
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
 
-    # Añade estas dos líneas para solucionar el Warning:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-    # 1. Descarga el código del repositorio en el entorno virtual
     - name: Checkout de código
       uses: actions/checkout@v4
 
-    # 2. Configura la versión de Python
     - name: Configurar Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
-    # 3. Ejecuta el script de Python y muestra los mensaje
     - name: Ejecutar script de Hola Mundo CI
       run: python app.py
-      
+
+    # 🚀 ESTE ES EL PASO NUEVO PARA ENVIAR A NTFY
+    - name: Enviar notificación a ntfy
+      run: |
+        curl -H "Title: ✅ 🚀 Nuevo push en main - Jolfreilyn Amancio" \
+             -H "Priority: high" \
+             -d "Se subió código nuevo al repositorio con éxito por Jolfreilyn Amancio (ID: 2025-1060)." \
+             https://ntfy.sh/devops-itla
