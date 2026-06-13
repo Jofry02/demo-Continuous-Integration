@@ -11,6 +11,10 @@ jobs:
   build-and-run:
     runs-on: ubuntu-latest
 
+    # Añade estas dos líneas para solucionar el Warning:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
     # 1. Descarga el código del repositorio en el entorno virtual
     - name: Checkout de código
