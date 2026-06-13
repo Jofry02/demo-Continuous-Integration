@@ -6,5 +6,7 @@ def main():
     print("ID: 2025-1060")
     print("CI/CD Pipeline ejecutado con éxito. 🚀")
 
+    print("Ahora realice un fix en el app")
+
 if __name__ == "__main__":
     main()
