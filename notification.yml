@@ -1,0 +1,27 @@
+name: CI Hola Mundo Jolfreilyn
+
+# El pipeline se activará cada vez que se haga un push a la rama principal
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Descarga el código del repositorio en el entorno virtual
+    - name: Checkout de código
+      uses: actions/checkout@v4
+
+    # 2. Configura la versión de Python
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. Ejecuta el script de Python y muestra los mensajes
+    - name: Ejecutar script de Hola Mundo CI
+      run: python hola_mundo.py
